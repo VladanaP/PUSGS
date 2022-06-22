@@ -52,7 +52,8 @@ namespace Repository.Impl
 
         public T Update(T entity)
         {
-            _dbContext.Set<T>().Update(entity);
+            var old = _dbContext.Set<T>().Find(entity.Id);
+            _dbContext.Entry(old).CurrentValues.SetValues(entity);
             Save();
             return entity;
         }

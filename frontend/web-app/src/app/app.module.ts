@@ -9,12 +9,18 @@ import { AppComponent } from './app.component';
 import { PatientGuard } from './shared/jwt/jwt-guard';
 import { TokenInterceptor } from './shared/jwt/token.interceptor';
 import { LandingComponent } from './landing/landing.component';
+import { RegisterComponent } from './register/register.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent
+    LandingComponent,
+    RegisterComponent,
+    CustomerComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +30,17 @@ import { LandingComponent } from './landing/landing.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'landing', component: LandingComponent },
-      { path: 'home', component: LandingComponent, canActivate: [PatientGuard] },
+      { path: 'register', component: RegisterComponent },
+      { path: 'Customer', component: CustomerComponent, canActivate: [PatientGuard],
+        children: [
+          {
+            path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
+          }
+        ]
+      },
+      { path: 'Deliverer', component: LandingComponent, canActivate: [PatientGuard] },
+      { path: 'Admin', component: LandingComponent, canActivate: [PatientGuard] },
+
       //{ path: 'basic-scheduling', component: StepperComponent, canActivate: [PatientGuard] },
       //{ path: 'recommended-scheduling', component: RecommendedAppointmentSchedulingComponent, canActivate: [PatientGuard] },
       { path: '**', redirectTo: 'landing' }

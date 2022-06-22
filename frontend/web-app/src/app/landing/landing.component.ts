@@ -1,6 +1,8 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../model/login';
+import { User } from '../model/user';
 import { AuthService } from '../service/AuthService/auth.service';
 
 @Component({
@@ -21,6 +23,7 @@ export class LandingComponent implements OnInit {
     name: null,
     surnameName: null
   }
+  user: User = JSON.parse(localStorage.getItem('currentUser') || '{}')
 
   constructor(private route: ActivatedRoute,
     private authService: AuthService,
@@ -33,17 +36,13 @@ export class LandingComponent implements OnInit {
   login() {
     this.authService.login(this.email, this.password).subscribe({
       next: res => {
-        //this.response = res.body
         
-        if(this.response){
-        //  localStorage.setItem("jwt", this.response.token)
-          // localStorage.setItem("currentUser", {
-          //   username: this.response.username
-          // })
-        }
-        this.router.navigate(['home']);
       }, error: e => alert("Invalid username or password") 
     });
+  }
+
+  register(){
+    this.router.navigate(['register']);
   }
 
 }

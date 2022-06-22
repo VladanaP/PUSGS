@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false
+  
 };
+
+export const path = "http://localhost:9429"
 
 /*
  * For easier debugging in development mode, you can import the following file

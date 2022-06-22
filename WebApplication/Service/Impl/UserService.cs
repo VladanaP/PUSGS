@@ -34,12 +34,17 @@ namespace Service.Impl
 
         public User RegisterUser(User user)
         {
+            User emailTaken = _userRepository.GetByUsername(user.Email);
+            if (emailTaken != null) return null;
             user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
             return _userRepository.Insert(user);
         }
 
         public User Update(User user)
         {
+            User emailTaken = _userRepository.GetByUsername(user.Email);
+            if (emailTaken != null) return null;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
             return _userRepository.Update(user);
         }
     }

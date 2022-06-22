@@ -33,7 +33,8 @@ namespace WebApplication.Controllers
             // validate
             if (user == null || !BCryptNet.Verify(model.Password, user.Password))
                 throw new ApplicationException("Username or password is incorrect");
-
+            
+            
             // authentication successful so generate jwt token
             var jwtToken = _jwtUtils.GenerateJwtToken(user);
             return Ok(new LoginResponseDTO(user, jwtToken));

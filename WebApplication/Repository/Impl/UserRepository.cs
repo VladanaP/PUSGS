@@ -14,7 +14,7 @@ namespace Repository.Impl
 
         public User GetByUsername(string username)
         {
-            return _dbContext.Set<User>().FirstOrDefault(u => u.Username == username);
+            return _dbContext.Set<User>().FirstOrDefault(u => u.Email == username);
         }
     }
 }
