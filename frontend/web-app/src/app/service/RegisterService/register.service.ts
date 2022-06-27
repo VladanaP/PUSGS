@@ -12,7 +12,7 @@ export class RegisterService {
 
   constructor(private router: Router, private _http: HttpClient) { }
 
-  register(user: User): Observable<HttpResponse<Object>> {
+  register(user: any): Observable<HttpResponse<Object>> {
     return this._http.post(`${path}/api/user`, user, {observe : 'response'})
   }
 

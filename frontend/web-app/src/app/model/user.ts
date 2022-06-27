@@ -8,7 +8,7 @@ export interface User {
     address: string
     dateOfBirth: Date
     image: string | null,
-    role: number,
+    role: string,
     approved: boolean,
-    status: number
+    status: string
 }

@@ -16,7 +16,12 @@ export class UserService {
     return this._http.get(`${path}/api/user/${id}`, {observe : 'response'})
   }
 
-  update(user: User){
+  update(user: any){
+    user.status = user.status === "Approved" ? 1 :  user.status === "Declined" ? 2 : 0
     return this._http.put(`${path}/api/user`, user, {observe : 'response'})
+  }
+
+  getAll(): Observable<HttpResponse<any>> {
+    return this._http.get(`${path}/api/user`, {observe : 'response'})
   }
 }

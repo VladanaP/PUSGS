@@ -12,6 +12,11 @@ import { LandingComponent } from './landing/landing.component';
 import { RegisterComponent } from './register/register.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { DelivererComponent } from './deliverer/deliverer.component';
+import { VerificationComponent } from './verification/verification.component';
+import { AddArticleComponent } from './add-article/add-article.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -21,6 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     CustomerComponent,
     ProfileComponent,
+    AdminComponent,
+    DelivererComponent,
+    VerificationComponent,
+    AddArticleComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,14 +45,32 @@ import { ProfileComponent } from './profile/profile.component';
         children: [
           {
             path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
+          },
+        ]
+      },
+      { path: 'Deliverer', component: DelivererComponent, canActivate: [PatientGuard], 
+        children: [
+          {
+            path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
           }
         ]
       },
-      { path: 'Deliverer', component: LandingComponent, canActivate: [PatientGuard] },
-      { path: 'Admin', component: LandingComponent, canActivate: [PatientGuard] },
-
-      //{ path: 'basic-scheduling', component: StepperComponent, canActivate: [PatientGuard] },
-      //{ path: 'recommended-scheduling', component: RecommendedAppointmentSchedulingComponent, canActivate: [PatientGuard] },
+      { path: 'Admin', component: AdminComponent, canActivate: [PatientGuard],
+        children: [
+          {
+            path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'verification', component: VerificationComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'article', component: AddArticleComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'orders', component: OrdersComponent, canActivate: [PatientGuard]
+          },
+        ]
+      },
       { path: '**', redirectTo: 'landing' }
     ]),
 

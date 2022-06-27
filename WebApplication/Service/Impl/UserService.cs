@@ -1,6 +1,7 @@
 ﻿using Domain;
 using System.Collections.Generic;
 using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
 using Repository;
 
 
@@ -42,9 +43,9 @@ namespace Service.Impl
 
         public User Update(User user)
         {
-            User emailTaken = _userRepository.GetByUsername(user.Email);
-            if (emailTaken != null) return null;
-            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            User oldUser = _userRepository.GetByUsername(user.Email);
+            if (oldUser == null) return null;
+            user.Password = user.Password.IsNullOrEmpty() ? oldUser.Password : BCrypt.Net.BCrypt.HashPassword(user.Password);
             return _userRepository.Update(user);
         }
     }

@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
     this.userService.getById(this.user.id).subscribe({
       next: res => {
         this.user = res.body
-        console.log(this.user)
       }, error: e => alert("Error")
     })
   }

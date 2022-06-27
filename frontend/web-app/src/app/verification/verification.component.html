@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col"></div>
+  <div class="col-md-8 d-flex justify-content-center">
+      <h1>Verification</h1>
+  </div>
+  <div class="col"></div>
+</div>
+
+
+<div class="row">
+  <div class="col"></div>
+  <div class="col-md-8 d-flex justify-content-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Status</th>
+          <th scope="col">Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of deliverers; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{person.username}}</td>
+          <td>{{person.email}}</td>
+          <td>{{person.name}}</td>
+          <td>{{person.surname}}</td>
+          <td>{{person.status}}</td>
+          <td>
+              <div *ngIf="person.status === 'Processing'">
+                  <button class="btn btn-primary mr-2" (click)="approve(person)">
+                      Approve
+                  </button>
+                  <button class="btn btn-danger" (click)="decline(person)">
+                      Decline
+                  </button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col"></div>
+</div>
