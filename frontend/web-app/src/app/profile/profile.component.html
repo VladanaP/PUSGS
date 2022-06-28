@@ -1,15 +1,26 @@
 <div class="row">
     <div class="col"></div>
     <div class="col d-flex justify-content-center">
-        <h1>
-            Profile
-        </h1>
+        <div>
+            <h1>
+                Profile
+            </h1>
+        </div>
     </div>
     <div class="col"></div>
 </div>
 <div class="row">
-    <div class="col d-flex justify-content-center">
-        <h2>User type: <i>{{user.role}}</i></h2>
+    <div class="col">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h2>User type: <i>{{user.role}}</i></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <img src="{{user.image}}" width="250" height="250"  alt="your image" id="img">
+            </div>
+        </div>
     </div>
     <div class="col d-flex justify-content-center">
         <form >

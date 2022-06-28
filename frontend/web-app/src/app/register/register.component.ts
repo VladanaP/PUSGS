@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   confirmPassword: string = '';
   type: number = 0
   dateOfBirth: Date = new Date
+  image: string = ''
 
 
   constructor(private router: Router, private registerService: RegisterService) { }
@@ -37,7 +38,7 @@ export class RegisterComponent implements OnInit {
       dateOfBirth: this.dateOfBirth,
       address: this.address,
       role: this.type,
-      image: "",
+      image: this.image,
       approved: this.type === 0 ? true : false,
       status: this.type === 0 ? 1 : 0
     }
@@ -50,6 +51,22 @@ export class RegisterComponent implements OnInit {
       }, error: e => alert("Error")
     })
   }
+
+  handleFileSelect(e: any){
+    const file = e.target.files[0];
+    if (!file) {
+        return
+    }
+    var reader = new FileReader();
+    reader.onload = this._handleReaderLoaded.bind(this)
+    reader.readAsBinaryString(file)
+  }
+
+  _handleReaderLoaded(readerEvt: any) {
+    var binaryString = readerEvt.target.result;
+      this.image='data:image/png;base64,' + btoa(binaryString);
+      console.log(this.image);
+   }
 
   back(){
     this.router.navigate(['landing']);
