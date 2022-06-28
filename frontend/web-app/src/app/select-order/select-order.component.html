@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col-md-8 d-flex justify-content-center">
+        <h1>Orders</h1>
+    </div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-md-8 d-flex justify-content-center">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Deliverer</th>
+                <th scope="col">Start time</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Address</th>
+                <th scope="col">Price</th>
+                <th scope="col">Manage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{order.customerId}}</td>
+                <td>{{order.delivererId}}</td>
+                <td>{{order.startTime}}</td>
+                <td>{{order.comment}}</td>
+                <td>{{order.address}}</td>
+                <td>{{order.price}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="update(order)">Select</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col"></div>
+</div>

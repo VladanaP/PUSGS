@@ -5,13 +5,13 @@
                 <a class="nav-link" [routerLink]="['profile']" routerLinkActive="router-link-active" >Profile</a>
             </li>
             <li class="nav-item active">
-                <a [class]="!user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['order']" routerLinkActive="router-link-active" >New order</a>
+                <a [class]="user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['order']" routerLinkActive="router-link-active" >Select order</a>
             </li>
             <li class="nav-item active">
-                <a [class]="!user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['order']" routerLinkActive="router-link-active" >Active order</a>
+                <a [class]="user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['counter']" routerLinkActive="router-link-active" >Active order</a>
             </li>
             <li class="nav-item active">
-                <a [class]="!user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['history']" routerLinkActive="router-link-active">History</a>
+                <a [class]="user.approved ? 'nav-link' : 'nav-link disabled'" [routerLink]="['history']" routerLinkActive="router-link-active">History</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">

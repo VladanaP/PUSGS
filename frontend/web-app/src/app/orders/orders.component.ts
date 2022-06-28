@@ -11,13 +11,17 @@ import { OrderService } from '../service/OrderService/order.service';
 export class OrdersComponent implements OnInit {
 
   orders: Order[] = []
+  user: any = JSON.parse(localStorage.getItem('currentUser') || '{}')
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.orderService.getAll().subscribe({
       next: (res: { body: Order[]; }) => {
         this.orders = res.body
-        console.log(this.orders)
+        if(this.user.role === "Customer")
+          this.orders = this.orders.filter(o => moment(o.endTime).isBefore(moment.now()) && o.customerId === this.user.id)
+        if(this.user.role === "Deliverer")
+          this.orders = this.orders.filter(o => moment(o.endTime).isBefore(moment.now()) && o.delivererId === this.user.id)
       }
     })
   }

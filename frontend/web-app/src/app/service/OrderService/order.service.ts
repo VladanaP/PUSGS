@@ -19,7 +19,7 @@ export class OrderService {
   }
 
   update(order: Order){
-    return this._http.put(`${path}/api/order`, order, {observe : 'response'})
+    return this._http.put(`${path}/api/order/${order.id}`, order, {observe : 'response'})
   }
 
   getAll(): any {

@@ -14,7 +14,10 @@ export class DelivererComponent implements OnInit {
   constructor(private userService : UserService) { }
 
   ngOnInit(): void {
-    this.user = this.userService.getById(JSON.parse(localStorage.getItem('currentUser') || '{}')?.id)
+    this.userService.getById(JSON.parse(localStorage.getItem('currentUser') || '{}')?.id).subscribe({
+      next: res => {
+        this.user = res.body
+      }
+    })
   }
-
 }

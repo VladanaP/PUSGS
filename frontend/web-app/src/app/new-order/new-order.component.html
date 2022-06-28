@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col d-flex justify-content-center"></div>
+    <div class="col d-flex justify-content-center">
+        <h1>Create new order</h1>
+    </div>
+    <div class="col d-flex justify-content-center"></div>
+</div>
+<div class="row">
+    <div class="col-md-6 d-flex justify-content-center align-self-center">
+        <div  class="row d-flex justify-content-center">
+            <div class="col text-center">
+                <h3>Articles:</h3>
+                <div *ngFor="let item of articles" class="card text-center mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.price}}</h6>
+                        <p class="card-text">{{item.ingredients}}</p>
+                        <label for="amount">Add amount</label>
+                        <input [(ngModel)]="item.amount" type="number" name="amount" class="form-control" id="amount">
+                        <button class="btn btn-primary mt-2" (click)="addToCart(item)">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 d-flex justify-content-center">
+        
+        <div  class="row d-flex justify-content-center">
+            <div class="col text-center">
+                <h3>Cart items:</h3>
+                <div *ngFor="let item of cartItems" class="card text-center mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.price}}</h6>
+                        <button class="btn btn-danger mt-2" (click)="removeFromCart(item)">Remove from cart</button>
+                    </div>
+                </div>
+            <label for="comment">Add comment</label>
+            <input [(ngModel)]="comment" type="text" name="comment" class="form-control" id="comment">
+            <label for="address">Add address</label>
+            <input [(ngModel)]="address" type="text" name="address" class="form-control" id="address">
+            <h4>Delivery price: 150 din</h4>
+
+            <button class="btn btn-primary mt-2" (click)="createOrder()">Create order</button>
+            </div>
+        </div>
+
+    </div>
+</div>

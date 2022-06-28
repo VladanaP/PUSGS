@@ -17,6 +17,9 @@ import { DelivererComponent } from './deliverer/deliverer.component';
 import { VerificationComponent } from './verification/verification.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { OrdersComponent } from './orders/orders.component';
+import { NewOrderComponent } from './new-order/new-order.component';
+import { CounterComponent } from './counter/counter.component';
+import { SelectOrderComponent } from './select-order/select-order.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { OrdersComponent } from './orders/orders.component';
     VerificationComponent,
     AddArticleComponent,
     OrdersComponent,
+    NewOrderComponent,
+    CounterComponent,
+    SelectOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,13 +52,31 @@ import { OrdersComponent } from './orders/orders.component';
           {
             path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
           },
+          {
+            path: 'order', component: NewOrderComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'counter', component: CounterComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'history', component: OrdersComponent, canActivate: [PatientGuard]
+          },
         ]
       },
       { path: 'Deliverer', component: DelivererComponent, canActivate: [PatientGuard], 
         children: [
           {
             path: 'profile', component: ProfileComponent, canActivate: [PatientGuard]
-          }
+          },
+          {
+            path: 'order', component: SelectOrderComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'counter', component: CounterComponent, canActivate: [PatientGuard]
+          },
+          {
+            path: 'history', component: OrdersComponent, canActivate: [PatientGuard]
+          },
         ]
       },
       { path: 'Admin', component: AdminComponent, canActivate: [PatientGuard],
