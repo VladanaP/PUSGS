@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220620130004_First")]
+    [Migration("20220629121627_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,7 +166,7 @@ namespace Repository.Migrations
                             Address = "Novi Sad",
                             Approved = true,
                             DateOfBirth = new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "johndoe@gmail.com",
+                            Email = "admin@gmail.com",
                             Image = "",
                             Name = "John",
                             Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",
@@ -181,7 +181,7 @@ namespace Repository.Migrations
                             Address = "Novi Sad",
                             Approved = false,
                             DateOfBirth = new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "johndoe@gmail.com",
+                            Email = "deliverer@gmail.com",
                             Image = "",
                             Name = "John",
                             Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",
@@ -196,7 +196,7 @@ namespace Repository.Migrations
                             Address = "Novi Sad",
                             Approved = true,
                             DateOfBirth = new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "johndoe@gmail.com",
+                            Email = "customer@gmail.com",
                             Image = "",
                             Name = "John",
                             Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",

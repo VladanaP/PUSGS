@@ -24,7 +24,7 @@ namespace Repository
                         Username = "admin",
                         //jabuka123
                         Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",
-                        Email = "johndoe@gmail.com",
+                        Email = "admin@gmail.com",
                         Name = "John",
                         Surname = "Doe",
                         Address = "Novi Sad",
@@ -40,7 +40,7 @@ namespace Repository
                         Username = "deliverer",
                         //jabuka123
                         Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",
-                        Email = "johndoe@gmail.com",
+                        Email = "deliverer@gmail.com",
                         Name = "John",
                         Surname = "Doe",
                         Address = "Novi Sad",
@@ -57,7 +57,7 @@ namespace Repository
                         Username = "customer",
                         //jabuka123
                         Password = "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i",
-                        Email = "johndoe@gmail.com",
+                        Email = "customer@gmail.com",
                         Name = "John",
                         Surname = "Doe",
                         Address = "Novi Sad",

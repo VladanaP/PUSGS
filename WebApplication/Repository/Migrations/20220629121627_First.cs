@@ -88,9 +88,9 @@ namespace Repository.Migrations
                 columns: new[] { "Id", "Address", "Approved", "DateOfBirth", "Email", "Image", "Name", "Password", "Role", "Status", "Surname", "Username" },
                 values: new object[,]
                 {
-                    { -1, "Novi Sad", true, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 2, 1, "Doe", "admin" },
-                    { -2, "Novi Sad", false, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 1, 0, "Doe", "deliverer" },
-                    { -3, "Novi Sad", true, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "johndoe@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 0, 1, "Doe", "customer" }
+                    { -1, "Novi Sad", true, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 2, 1, "Doe", "admin" },
+                    { -2, "Novi Sad", false, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "deliverer@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 1, 0, "Doe", "deliverer" },
+                    { -3, "Novi Sad", true, new DateTime(2022, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), "customer@gmail.com", "", "John", "$2a$10$UVn74F/yEiUzKWBSGVyzHe2UfpVJ95zY50Q8bz1RFyrAYVfwFAj4i", 0, 1, "Doe", "customer" }
                 });
         }
 

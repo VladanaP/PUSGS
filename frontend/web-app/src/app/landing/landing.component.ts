@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../model/login';
 import { User } from '../model/user';
 import { AuthService } from '../service/AuthService/auth.service';
-import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { FacebookLoginProvider, SocialAuthService } from "@abacritt/angularx-social-login";
 import { SocialUser } from "@abacritt/angularx-social-login";
 
 
@@ -65,6 +65,14 @@ export class LandingComponent implements OnInit {
 
   register(){
     this.router.navigate(['register']);
+  }
+
+  signInWithFB(): void {
+    this.authSocialService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authSocialService.signOut();
   }
 
 }

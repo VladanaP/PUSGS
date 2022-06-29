@@ -115,14 +115,8 @@ import {
         autoLogin: false,
         providers: [
           {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              'clientId'
-            )
-          },
-          {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('clientId')
+            provider: new FacebookLoginProvider('879949222919336')
           }
         ],
         onError: (err) => {

@@ -103,5 +103,7 @@
       }
     }
   },
-  "defaultProject": "web-app"
+  "cli": {
+    "analytics": "15ecad45-6d0d-4728-8ede-c4383b2dde27"
+  }
 }
