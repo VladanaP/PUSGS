@@ -20,6 +20,11 @@ import { OrdersComponent } from './orders/orders.component';
 import { NewOrderComponent } from './new-order/new-order.component';
 import { CounterComponent } from './counter/counter.component';
 import { SelectOrderComponent } from './select-order/select-order.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -43,6 +48,7 @@ import { SelectOrderComponent } from './select-order/select-order.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SocialLoginModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'landing', component: LandingComponent },
@@ -102,7 +108,28 @@ import { SelectOrderComponent } from './select-order/select-order.component';
   providers: [
     PatientGuard,
     { provide: 'API_URL', useValue: 'http://localhost:9429/' },
-    { provide:  HTTP_INTERCEPTORS,  useClass: TokenInterceptor,  multi: true}
+    { provide:  HTTP_INTERCEPTORS,  useClass: TokenInterceptor,  multi: true},
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              'clientId'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('clientId')
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
     
   bootstrap: [AppComponent]

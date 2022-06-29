@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../model/login';
 import { User } from '../model/user';
 import { AuthService } from '../service/AuthService/auth.service';
+import { SocialAuthService } from "@abacritt/angularx-social-login";
+import { SocialUser } from "@abacritt/angularx-social-login";
+
 
 @Component({
   selector: 'app-landing',
@@ -24,13 +27,32 @@ export class LandingComponent implements OnInit {
     surnameName: null
   }
   user: User = JSON.parse(localStorage.getItem('currentUser') || '{}')
+  socialUser: SocialUser = {
+    provider: '',
+    id: '',
+    email: '',
+    name: '',
+    photoUrl: '',
+    firstName: '',
+    lastName: '',
+    authToken: '',
+    idToken: '',
+    authorizationCode: '',
+    response: undefined
+  };
+  loggedIn: boolean = false;
 
   constructor(private route: ActivatedRoute,
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private authSocialService: SocialAuthService) { }
   
 
   ngOnInit(): void {
+    this.authSocialService.authState.subscribe((socialUser) => {
+      this.socialUser = socialUser;
+      this.loggedIn = (socialUser != null);
+    });
   }
 
   login() {
